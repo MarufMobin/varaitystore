@@ -35,6 +35,10 @@ body {
 .rating-bold{
   font-weight: 700;
 }
+.heading{
+  text-align: center;
+   margin: 25px 0px;
+}
 #all-products {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
