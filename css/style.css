@@ -20,6 +20,11 @@ body {
   font-size: 16px;
   font-weight: 500;
 }
+.search-field button:focus{
+  outline: none;
+ outline-offset: none;
+ color: #fff;
+}
 .search-button {
   background-color: #3388cc;
   color: white;
