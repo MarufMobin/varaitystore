@@ -32,6 +32,9 @@ body {
 .search-field button:hover{
   color: #fff;
 }
+.rating-bold{
+  font-weight: 700;
+}
 #all-products {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
