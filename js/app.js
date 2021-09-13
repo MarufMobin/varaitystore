@@ -4,11 +4,11 @@ const loadProducts = () => {
     .then((response) => response.json())
     .then((data) => showProducts(data));
 };
+
 loadProducts();
 
 // show all product in UI 
 const showProducts = (products) => {
-
   const allProducts = products.map((pd) => pd);
   for (const product of allProducts) {
     const image = product.image;
@@ -18,15 +18,35 @@ const showProducts = (products) => {
       <div>
     <img class="product-image" src=${image}></img>
       </div>
-      <h3>${product.title}</h3>
+      <h3>${product.title.slice( 0 , 25)}</h3>
       <p>Category: ${product.category}</p>
-      <h2>Price: $ ${product.price}</h2>
-      <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
-      <button id="details-btn" class="btn btn-danger">Details</button></div>
+      <p>Global Ratings: <i class="fa fa-star"></i>
+    ${product.rating.rate} (${product.rating.count}) </p>      
+      <h2>Price:<span class="price"> $ ${product.price}</span></h2>
+      <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="cst-btn-cart">add to cart</button>
+      <button id="details-btn" class="cst-btn">Details</button></div>
       `;
     document.getElementById("all-products").appendChild(div);
+
+                          // 24)  ${cartRating(product.rating.rate)} <div id="rating-div">5545212</div>
   }
 };
+
+// const cartRating = (rating) =>{
+//   // console.log( rating)
+//     // const parseRating = parseInt(rating);
+//     // console.log(parseRating)
+//     const para = document.getElementById("rating-div");
+//       console.log(para)
+//       // para.innerHTML = `<i class="fa fa-star"></i>`;
+
+
+//       //  const li = document.createElement('li');
+//       // const i =  `<i class="fa fa-star"></i>`;
+//       //  p.appendChild(i)
+//     //  return p;
+// }
+
 let count = 0;
 const addToCart = (id, price) => {
   count = count + 1;
